@@ -10,6 +10,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class PDFToJPGConverter {
+    /**
+     * public void convertPDFToJPG(String pdfFilePath, String outputFolder):
+     * Метод принимает два параметра - путь к PDF-файлу (pdfFilePath) и путь
+     * к папке для сохранения JPG-изображений (outputFolder).
+     * */
     public void convertPDFToJPG(String pdfFilePath, String outputFolder) {
         try {
             File pdfFile = new File(pdfFilePath);
