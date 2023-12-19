@@ -1,5 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        PDFToJPGConverter converter = new PDFToJPGConverter();
+        /**Путь к файлу пишется в формате "C:\\Users\\quantum\\Downloads\\cat.pdf"*/
+        converter.convertPDFToJPG("C:\\Users\\quantum\\Downloads\\cat.pdf", "Преобразованные в JPG");
     }
 }
