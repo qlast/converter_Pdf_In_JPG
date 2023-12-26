@@ -30,15 +30,21 @@ public class PDFToJPGConverter {
             outputDir.mkdirs();
 
             for (int page = 0; page < document.getNumberOfPages(); page++) {
+                /** Для каждой страницы создается объект BufferedImage, который представляет из себя изображение с
+                 * разрешением 300 DPI.*/
                 BufferedImage image = pdfRenderer.renderImageWithDPI(page, 300, ImageType.RGB);
-
+                /** Формируется имя файла для JPG-изображения например, "page_1.jpg" для первой страницы*/
                 String jpgFileName = "page_" + (page + 1) + ".jpg";
+                /** Создается объект File для представления пути сохранения JPG-изображения.*/
                 File jpgFile = new File(outputDir, jpgFileName);
+                /**Само изображение записывается в файл формата JPG*/
                 ImageIO.write(image, "jpg", jpgFile);
             }
-
+            /** Закрывается PDF-документ после обработки всех страниц.*/
             document.close();
             System.out.println("Конвертация завершена.");
+            /** Обрабатываются исключения ввода-вывода. Если произойдет ошибка при чтении/записи файлов,
+             * будет выведено сообщение об ошибке. */
         } catch (IOException e) {
             e.printStackTrace();
         }
